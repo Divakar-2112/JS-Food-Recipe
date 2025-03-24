@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Recipe</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>🍽️ Food Recipes</h1>
+        
+        <!-- Search Box -->
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search for a recipe...">
+            <button onclick="searchRecipes()">🔍 Search</button>
+        </div>
+
+        <!-- Horizontal Scroll Section -->
+        <div class="recipe-scroll-container">
+            <button id="leftarrow" class="scroll-btn" onclick="prevSlide()">
+                <i class="fa-solid fa-circle-left"></i>
+            </button>
+            <div id="recipescroll" class="recipescroll">
+               
+            </div>
+            <button id="rightarrow" class="scroll-btn" onclick="nextSlide()">
+                <i class="fa-solid fa-circle-right"></i>
+            </button>   
+        </div>
+
+        <div id="viewrecipe" class="viewrecipe" style="display: none;">
+            <div class="recipecontent">
+                <span class="close" onclick="closeRecipe()">&times;</span>
+                <img id="recipeimage" src="" alt="">
+                <h3 id="recipetitle"></h3>
+            </div>
+        </div>
+        <!-- Cuisine Filter -->
+        <div class="filter-buttons">
+            <button onclick="fetchRecipes('')">All</button>
+            <button onclick="fetchRecipes('italian')">🍕 Italian</button>
+            <button onclick="fetchRecipes('mexican')">🌮 Mexican</button>
+            <button onclick="fetchRecipes('indian')">🍛 Indian</button>
+            <button onclick="fetchRecipes('chinese')">🥡 Chinese</button>
+            <button onclick="fetchRecipes('thai')">🍜 Thai</button>
+            <button onclick="fetchRecipes('french')">🥖 French</button>
+        </div>
+
+        <!-- Loader -->
+        <div id="loader" class="loader"></div>
+
+        <!-- Recipe Grid -->
+        <div class="recipe-container">
+            <div id="recipegrids" class="recipegrids"></div>
+        </div>
+
+        <!-- View More Button -->
+        <button id="viewMore" class="view-more" onclick="loadMoreRecipes()" style="display:none;">
+            View More ⬇️
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
