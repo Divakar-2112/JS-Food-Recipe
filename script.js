@@ -1,7 +1,10 @@
-let API_KEY = "c68083290ac9456b810afba219f6972d";
+let API_KEY = "3842fe6f66654eaf8906df5e330efecc";
 let recipeCount = 15;
 let currentCuisine = "";
 let allRecipes = [];
+let valueitems=[];
+
+let all = ["All"]
 
 // Default recipes when the page loads
 document.addEventListener("DOMContentLoaded", () => {
@@ -52,6 +55,8 @@ async function fetchRecipes(cuisine = "", query = "") {
         loader.style.display = "none"; // Hide loader
 
         let recipes = data.recipes || data.results || [];
+        
+                
 
         if (recipes.length === 0) {
             recipeGrid.innerHTML = "<p>No recipes found. Try a different search!</p>";
@@ -72,9 +77,17 @@ async function fetchRecipes(cuisine = "", query = "") {
 // Display recipes in the  grid
 function displayRecipes(recipes) {
     let recipeGrid = document.getElementById("recipegrids");
+  
+
     recipes.forEach((recipe) => {
         let recipeDiv = document.createElement("div");
         recipeDiv.classList.add("recipe");
+
+        recipe.cuisines.forEach((elemen) => {
+            if (!all.includes(elemen)) { 
+                all.push(elemen);
+            }
+        });
 
         recipeDiv.innerHTML = `<div onclick="openRecipe('${recipe.image}', '${recipe.title}')">
             <img src="${recipe.image}" alt="${recipe.title}">
@@ -84,6 +97,16 @@ function displayRecipes(recipes) {
 
         recipeGrid.appendChild(recipeDiv);
     });
+let filterbtn=document.getElementById("filter-buttons");
+
+all.forEach((valueitem)=>{
+    let valueItem=document.createElement("div");
+    valueItem.innerHTML=`
+    <button onclick="fetchRecipes('')">${valueitem}</button>
+    `;
+    filterbtn.appendChild(valueItem);
+});
+
 }
 
 // Display recipes in the horizontal scroll 
@@ -98,7 +121,7 @@ function displayScrollRecipes(recipes) {
         recipeDiv.innerHTML = `
                 <img src="${recipe.image}" alt="${recipe.title}">
                 <h3>${recipe.title}</h3>
-            </a>
+            
         `;
 
         recipeScroll.appendChild(recipeDiv);
@@ -128,6 +151,7 @@ async function loadMoreRecipes() {
         }
     } catch (error) {
         console.error("Error fetching more recipes:", error);
+        document.getElementById("loader").style.display = "none";
     }
 }
 

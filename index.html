@@ -43,14 +43,10 @@
             </div>
         </div>
         <!-- Cuisine Filter -->
-        <div class="filter-buttons">
-            <button onclick="fetchRecipes('')">All</button>
-            <button onclick="fetchRecipes('italian')">🍕 Italian</button>
-            <button onclick="fetchRecipes('mexican')">🌮 Mexican</button>
-            <button onclick="fetchRecipes('indian')">🍛 Indian</button>
-            <button onclick="fetchRecipes('chinese')">🥡 Chinese</button>
-            <button onclick="fetchRecipes('thai')">🍜 Thai</button>
-            <button onclick="fetchRecipes('french')">🥖 French</button>
+        <div class="filter-buttons" id="filter-buttons">
+            <div>
+                <!-- <button onclick="fetchRecipes('')">All</button> -->
+            </div>
         </div>
 
         <!-- Loader -->
@@ -60,7 +56,9 @@
         <div class="recipe-container">
             <div id="recipegrids" class="recipegrids"></div>
         </div>
-
+        <!-- Loader -->
+        <div id="loader" class="loader"></div>
+        
         <!-- View More Button -->
         <button id="viewMore" class="view-more" onclick="loadMoreRecipes()" style="display:none;">
             View More ⬇️

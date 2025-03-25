@@ -132,24 +132,42 @@ h1 {
 }
 
 /* Filter Buttons */
+/* Filter Buttons Container */
 .filter-buttons {
-    margin-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Space between buttons */
+    justify-content: center; /* Center the buttons */
+    margin: 20px 0;
 }
 
+/* Individual Button Wrapper */
+.filter-buttons div {
+    display: flex;
+}
+
+/* Filter Buttons */
 .filter-buttons button {
-    padding: 10px;
-    margin: 5px;
-    border: none;
-    background: rgba(255, 255, 255, 0.4);
+    background-color: #f9cdff; /* Vibrant orange */
     color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 20px;
     cursor: pointer;
-    border-radius: 50px;
-    transition: 0.3s;
+    transition: all 0.3s ease-in-out;
 }
 
 .filter-buttons button:hover {
-    background: rgba(255, 255, 255, 0.7);
+    background-color:  #e98cf5; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight increase in size */
 }
+
+.filter-buttons button:active {
+    transform: scale(0.95); /* Press effect */
+}
+
 
 /* Recipe Grid */
 .recipegrids {
