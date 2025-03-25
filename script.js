@@ -2,7 +2,6 @@ let API_KEY = "3842fe6f66654eaf8906df5e330efecc";
 let recipeCount = 15;
 let currentCuisine = "";
 let allRecipes = [];
-let valueitems=[];
 
 let all = ["All"]
 
